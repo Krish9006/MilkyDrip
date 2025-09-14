@@ -1,18 +1,18 @@
 /* General Page Layout */
-.product-page1 {
+.product-page1z {
     display: flex;
     justify-content: center;
     padding: 20px;
     background-color: #f0f2f5; /* Adds a light background for better visibility */
 }
 
-.product-page2 {
+.product-page2z {
     display: flex;
     padding: 10px;
     background-color: #f0ece1; /* Adds a light background for better visibility */
 }
 
-.product-grid {
+.product-gridz {
     /* Ensures at least two columns on most screens */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -22,14 +22,14 @@
     margin: 0 auto; /* Centers the grid */
 }
 
-.product-flex {
+.product-flexz {
     display: flex;
     gap: 15px;
     margin: 0; 
 }
 
 /* Card Component Styles */
-.product-card1 {
+.product-card1z {
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     overflow: hidden;
@@ -41,7 +41,7 @@
     flex-direction: column;
     height: 100%; /* Makes all cards the same height */
 }
-.product-card2 {
+.product-card2z {
     width: 300px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -56,12 +56,12 @@
     background-color: white;
 }
 
-.product-card:hover {
+.product-cardz:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.image-container {
+.image-containerz {
     position: relative;
     overflow: hidden;
     height: 250px;
@@ -72,14 +72,14 @@
     flex-shrink: 0; /* Prevents the image from shrinking */
 }
 
-.product-image1 {
+.product-image1z {
     width: 100%;
     height: 100%;
     object-fit: cover; /* This is the key change for images */
     transition: transform 0.3s ease;
 }
 
-.product-image2 {
+.product-image2z {
     width: 300px;
     height: 100%;
     object-fit: cover; /* This is the key change for images */
@@ -87,11 +87,11 @@
 }
 
 
-.image-container:hover .product-image {
+.image-containerz:hover .product-image2z {
     transform: scale(1.1);
 }
 
-.random-artist-name {
+.random-artist-namez {
     position: absolute;
     bottom: 10px;
     left: 10px;
@@ -104,7 +104,7 @@
 }
 
 /* Card Details */
-.card-details {
+.card-detailsz {
     padding: 15px;
     flex-grow: 1; /* Makes card details section fill remaining space */
     display: flex;
@@ -112,14 +112,14 @@
     justify-content: space-between; /* Pushes price to the bottom */
 }
 
-.actions {
+.actionsz {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
     margin-bottom: 10px;
 }
 
-.action-btn {
+.action-btnz {
     background: none;
     border: none;
     cursor: pointer;
@@ -128,21 +128,21 @@
     line-height: 1;
 }
 
-.heart-symbol {
+.heart-symbolz {
     color: #ccc;
     transition: color 0.3s ease;
 }
 
-.heart-symbol.wishlisted {
+.heart-symbolz.wishlistedz {
     color: red;
 }
 
-.plus-symbol {
+.plus-symbolz {
     color: #555;
     font-weight: bold;
 }
 
-.artist-name {
+.artist-namez {
     font-size: 13px;
     font-weight: bold;
     color: #555;
@@ -150,40 +150,40 @@
     text-transform: uppercase;
 }
 
-.product-title {
-    font-size: 20px !important;
+.product-titlez {
+    font-size: 19px !important;
     margin: 5px 0 10px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: 700;
+    font-weight: 650;
 }
 
-.product-info {
+.product-infoz {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: auto; /* Pushes the price and rating to the bottom */
 }
 
-.rating {
+.ratingz {
     font-size: 14px;
     color: #666;
 }
 
-.star-symbol {
+.star-symbolz {
     color: #ffc107;
     margin-left: 2px;
 }
 
-.price-in-dollar {
+.price-in-dollarz {
     font-size: 20px;
     font-weight: bold;
     color: #333;
 }
 
 /* Cart Message */
-.cart-message {
+.cart-messagez {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -204,7 +204,7 @@
 }
 
 /* Loading and Error Messages */
-.loading-message, .error-message {
+.loading-messagez, .error-messagez {
     text-align: center;
     padding: 50px;
     font-size: 18px;

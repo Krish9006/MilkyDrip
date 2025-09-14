@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import ProductCard from '../Components/ProductCard';
-import '../Pages/Product.css';
+import ProductCard2 from '../Components/ProductCard2';
+import '../Pages/Product2.css';
 
-const ProductPage = ({URL,Heading}) => {
+const ProductPage2 = ({URL,Heading}) => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -27,17 +27,17 @@ const ProductPage = ({URL,Heading}) => {
         fetchProducts();
     }, [URL]);
 
-    if (loading) return <div className="loading-message">Loading products...</div>;
-    if (error) return <div className="error-message">Error: {error}</div>;
+    if (loading) return <div className="loading-messagez">Loading products...</div>;
+    if (error) return <div className="error-messagez">Error: {error}</div>;
 
 
     return (
         <>
-            <h2 className="mt-4 styledFont text-4xl mb-3 text-center" style={{fontSize:"40px"}}> {Heading} </h2>
-            <div className="product-page1">
-                <div className="product-grid">
+            <h2 className="mt-4 styledFont text-4xl mb-3 ml-2" style={{fontSize:"40px"}}> {Heading} </h2>
+            <div className="product-page2z">
+                <div className="product-flexz">
                     {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
+                        <ProductCard2 key={product.id} product={product} />
                     ))}
                 </div>
             </div>
@@ -45,4 +45,4 @@ const ProductPage = ({URL,Heading}) => {
     );
 };
 
-export default ProductPage;
+export default ProductPage2;

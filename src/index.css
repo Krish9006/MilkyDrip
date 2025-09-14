@@ -6,8 +6,9 @@
     font-weight: bold;
     font-style: normal;
     font-size: larger;
+    text-transform: uppercase;
+}
+*{
+    font-family: "Montserrat";
 }
 
-body{
-    background: #F0ECE1;
-}

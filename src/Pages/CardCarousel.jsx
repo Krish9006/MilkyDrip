@@ -7,14 +7,16 @@
 
 
 const cards = [
-  { src: "https://images.pexels.com/photos/4009627/pexels-photo-4009627.jpeg", name: "Gaming", slug: "gaming" },
-  { src: "https://images.pexels.com/photos/25746374/pexels-photo-25746374.jpeg", name: "Movies", slug: "movies" },
-  { src: "https://images.pexels.com/photos/5408185/pexels-photo-5408185.jpeg", name: "Horror", slug: "horror" },
-  { src: "https://images.pexels.com/photos/33741385/pexels-photo-33741385.jpeg", name: "Other", slug: "Other" },
-  { src: "https://images.pexels.com/photos/10464793/pexels-photo-10464793.jpeg", name: "TvShows", slug: "tv-shows" },
-  { src: "https://images.pexels.com/photos/30479724/pexels-photo-30479724.jpeg", name: "Zodiac", slug: "zodiac" }
+  { src: "https://images.pexels.com/photos/4009627/pexels-photo-4009627.jpeg?auto=compress&cs=tinysrgb&w=800", name: "Gaming", slug: "gaming" },
+  { src: "https://images.pexels.com/photos/25746374/pexels-photo-25746374.jpeg?auto=compress&cs=tinysrgb&w=800", name: "Movies", slug: "movies" },
+  { src: "https://images.pexels.com/photos/5408185/pexels-photo-5408185.jpeg?auto=compress&cs=tinysrgb&w=800", name: "Horror", slug: "horror" },
+  { src: "https://images.pexels.com/photos/33741385/pexels-photo-33741385.jpeg?auto=compress&cs=tinysrgb&w=800", name: "TvShows", slug: "tv-shows" },
+  { src: "https://images.pexels.com/photos/30479724/pexels-photo-30479724.jpeg?auto=compress&cs=tinysrgb&w=800", name: "Zodiac", slug: "zodiac" },
+  { src: "https://images.pexels.com/photos/10464793/pexels-photo-10464793.jpeg?auto=compress&cs=tinysrgb&w=800", name: "Other", slug: "Other" }
 
 ];
+
+
 
 export default function Carousel() {
   const trackRef = useRef(null);
@@ -32,9 +34,9 @@ export default function Carousel() {
 
   return (
     <>
-      <h1 className="mt-4 styledFont text-4xl text-center" style={{fontSize:"40px"}}> Our Collections </h1>
+      <h1 className="mt-15 styledFont text-4xl text-center" style={{fontSize:"40px"}}> Our Collections </h1>
       <div className="carousel-wrapper">
-        <div className="m-4">
+        <div>
           <button className="arrow left" onClick={() => scrollByCards(-1)} aria-label="Scroll left">
             ‹
           </button>
