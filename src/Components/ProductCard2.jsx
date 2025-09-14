@@ -1,12 +1,11 @@
 import React, { useState, useRef } from 'react'; // 🔹 added useRef for timeout cleanup
-import "../Pages/Product.css"; 
+import "../Pages/Product2.css"; 
 
 // Utility function to get a random artist name from a predefined list.
 const getRandomArtistName = () => {
     const artists = ['DrMonekers', 'AlemaArt', 'NemiMakeit', 'palmstreet', 'turborat14'];
     return artists[Math.floor(Math.random() * artists.length)];
 };
-
 
 const getRandomRating = () => {
     return (Math.random() * 5).toFixed(1); 
@@ -16,15 +15,7 @@ const getRandomPersonCount = () => {
     return Math.floor(Math.random() * 1000) + 100;
 };
 
-const ProductCard = ({ product }) => {
-
-
-    const [isWishlisted, setIsWishlisted] = useState(false);
-    
-
-    const [showCartMessage, setShowCartMessage] = useState(false);
-
-
+const ProductCard2 = ({ product }) => {
     const [isWishlisted, setIsWishlisted] = useState(false);
     const [showCartMessage, setShowCartMessage] = useState(false);
 
@@ -35,7 +26,6 @@ const ProductCard = ({ product }) => {
 
     // 🔹 ref to manage timeout cleanup for cart message
     const timeoutRef = useRef(null);
-
 
     const handleWishlistClick = () => {
         setIsWishlisted(!isWishlisted);
@@ -54,40 +44,40 @@ const ProductCard = ({ product }) => {
 
 
     return (
-        <div className="product-card1">
-            <div className="image-container">
-                <img src={product.image} alt={product.title} className="product-image1" />
+        <div className="product-card2z">
+            <div className="image-containerz">
+                <img src={product.image} alt={product.title} className="product-image2z" />
                 {/* 🔹 use stored artistName instead of generating again */}
-                <span className="random-artist-name">{artistName}</span>
+                <span className="random-artist-namez">{artistName}</span>
             </div>
             
-            <div className="card-details">
-                <div className="actions">
-                    <button onClick={handleWishlistClick} className="action-btn">
-                        <span className={`heart-symbol ${isWishlisted ? 'wishlisted' : ''}`}>&#x2764;</span>
+            <div className="card-detailsz">
+                <div className="actionsz">
+                    <button onClick={handleWishlistClick} className="action-btnz">
+                        <span className={`heart-symbolz ${isWishlisted ? 'wishlistedz' : ''}`}>&#x2764;</span>
                     </button>
-                    <button onClick={handleAddToCart} className="action-btn">
-                        <span className="plus-symbol">&#x2b;</span>
+                    <button onClick={handleAddToCart} className="action-btnz">
+                        <span className="plus-symbolz">&#x2b;</span>
                     </button>
                 </div>
                 
                 {/* 🔹 use the same artistName for consistency */}
-                <h3 className="artist-name">{artistName}</h3>
+                <h3 className="artist-namez">{artistName}</h3>
                 
-                <h2 className="product-title">{product.title}</h2>
+                <h2 className="product-titlez">{product.title}</h2>
                 
-                <div className="product-info">
-                    <div className="rating">
+                <div className="product-infoz">
+                    <div className="ratingz">
                         <span>{product.rating}</span>
-                        <span className="star-symbol">&#9733;</span>
+                        <span className="star-symbolz">&#9733;</span>
                         <span>({personCount})</span>
                     </div>
-                    <div className="price-in-dollar">${product.price}</div>
+                    <div className="price-in-dollarz">${product.price}</div>
                 </div>
             </div>
             
             {showCartMessage && (
-                <div className="cart-message">
+                <div className="cart-messagez">
                     Item added to cart
                 </div>
             )}
@@ -95,4 +85,4 @@ const ProductCard = ({ product }) => {
     );
 };
 
-export default ProductCard;
+export default ProductCard2;
