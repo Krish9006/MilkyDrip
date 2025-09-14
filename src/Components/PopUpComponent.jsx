@@ -19,7 +19,7 @@ function PopUpComponent({ msg }) {
   if (!visible) return null; 
 
   return (
-    <div className="fixed top-[10vh] w-[100vw] flex justify-center z-50">
+    <div className="fixed inset-x-0 top-[12vh] flex justify-center z-50">
       <div className="text-black p-2 bg-amber-400 w-fit rounded shadow-lg">
         {msg}
       </div>
