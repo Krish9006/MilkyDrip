@@ -7,9 +7,9 @@ function Others() {
     return (
         <>
             <div className='mt-[15vh] flex justify-around items-center'>
-                <button className='p-3  bg-amber-700 text-white rounded font-bold text-3xl' onClick={()=>setCurrentCategory("tv-shows")}>TV-Shows</button>
-                <button className='p-3  bg-amber-700 text-white rounded font-bold text-3xl' onClick={()=>setCurrentCategory("top-picks")}>Top-Pics</button>
-                <button className='p-3  bg-amber-700 text-white rounded font-bold text-3xl' onClick={()=>setCurrentCategory("new-releases")}>New-Releases</button>
+                <button className='p-3  bg-amber-700 text-white rounded font-bold text-3xl hover:cursor-pointer' onClick={()=>setCurrentCategory("tv-shows")}>TV-Shows</button>
+                <button className='p-3  bg-amber-700 text-white rounded font-bold text-3xl hover:cursor-pointer' onClick={()=>setCurrentCategory("top-picks")}>Top-Pics</button>
+                <button className='p-3  bg-amber-700 text-white rounded font-bold text-3xl hover:cursor-pointer' onClick={()=>setCurrentCategory("new-releases")}>New-Releases</button>
             </div>
             <div className='mt-[5vh]'>
             <ProductPage URL={Urls[currentCategory]} Heading={currentCategory.replace("-", " ").replace(/\b\w/g, c => c.toUpperCase())} />

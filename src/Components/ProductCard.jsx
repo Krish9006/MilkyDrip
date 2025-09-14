@@ -10,29 +10,24 @@ const getRandomArtistName = () => {
     return artists[Math.floor(Math.random() * artists.length)];
 };
 
-// Utility function to generate a random product rating.
-// It creates a random number between 0 and 5 and formats it to one decimal place.
+
 const getRandomRating = () => {
     return (Math.random() * 5).toFixed(1); 
 };
 
-// Utility function to generate a random number of people who have rated the product.
-// It creates a random integer between 100 and 1099.
 const getRandomPersonCount = () => {
     return Math.floor(Math.random() * 1000) + 100;
 };
 
 // ProductCard is a functional component that receives 'product' data as a prop.
 const ProductCard = ({ product }) => {
-    // useState hook to manage the state of the wishlist heart icon.
-    // isWishlisted is the current state, and setIsWishlisted is the function to update it.
+
     const [isWishlisted, setIsWishlisted] = useState(false);
     
-    // useState hook to manage the visibility of the "Item added to cart" message.
+
     const [showCartMessage, setShowCartMessage] = useState(false);
 
-    // This function is called when the wishlist heart is clicked.
-    // It toggles the isWishlisted state between true and false.
+
     const handleWishlistClick = () => {
         setIsWishlisted(!isWishlisted);
     };
