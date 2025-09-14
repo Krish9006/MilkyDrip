@@ -7,6 +7,7 @@ const getRandomArtistName = () => {
     return artists[Math.floor(Math.random() * artists.length)];
 };
 
+
 const getRandomRating = () => {
     return (Math.random() * 5).toFixed(1); 
 };
@@ -16,6 +17,14 @@ const getRandomPersonCount = () => {
 };
 
 const ProductCard = ({ product }) => {
+
+
+    const [isWishlisted, setIsWishlisted] = useState(false);
+    
+
+    const [showCartMessage, setShowCartMessage] = useState(false);
+
+
     const [isWishlisted, setIsWishlisted] = useState(false);
     const [showCartMessage, setShowCartMessage] = useState(false);
 
@@ -26,6 +35,7 @@ const ProductCard = ({ product }) => {
 
     // 🔹 ref to manage timeout cleanup for cart message
     const timeoutRef = useRef(null);
+
 
     const handleWishlistClick = () => {
         setIsWishlisted(!isWishlisted);
