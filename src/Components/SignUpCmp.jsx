@@ -1,25 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PopUpComponent from "./PopUpComponent";
 
 function SignUpCmp() {
-    let verifyUser = ()=>{
-        // let username = document.getElementById("username").value;
-        // let pwd = document.getElementById("password").value;
-        // let cnfPwd = document.getElementById("confirmPassword").value;
-        // let fullName = document.getElementById("name").value;
-        // for (let i = 0; i < localStorage.length; i++) {
-        //     const key = localStorage.key(i);
-        //     if(key===username){
-        //         console.log("User Alreday Present .... ");
-        //     }else{
-                
-        //     }
-        // }
+  const [username, setUsername] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [msg, setMsg] = useState("");
+  const navigate = useNavigate();
 
+  const verifyUser = (e) => {
+    e.preventDefault();
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if username already exists
+    if (users.some((user) => user.username === username.trim())) {
+      setMsg("User already exists. Please choose a different username.");
+      return;
     }
-    return (
-      <form className="max-w-sm mx-auto mt-6 p-6 border rounded-lg shadow-md bg-white">
-       
 
+    // Check if passwords match
+    if (password.trim() !== confirmPassword.trim()) {
+      setMsg("Passwords do not match.");
+      return;
+    }
+
+    // Create new user object
+    const newUser = {
+      username: username.trim(),
+      fullName: fullName.trim(),
+      password: password.trim(),
+    };
+
+    // Save new user to localStorage
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+
+    setMsg("Sign Up Successful!");
+
+    // Clear form fields
+    setUsername("");
+    setFullName("");
+    setPassword("");
+    setConfirmPassword("");
+
+    // Redirect to main page after 2 seconds
+    setTimeout(() => {
+      navigate("/"); // change "/" to your main page route
+    }, 2000);
+  };
+
+  return (
+    <>
+      {/* Popup renders here */}
+      {msg && <PopUpComponent msg={msg} />}
+
+      <form
+        className="max-w-sm mx-auto mt-6 p-6 border rounded-lg shadow-md bg-white"
+        onSubmit={verifyUser}
+      >
         {/* Username */}
         <div className="mb-4 text-left">
           <label htmlFor="username" className="block font-medium mb-1">
@@ -28,14 +69,15 @@ function SignUpCmp() {
           <input
             type="text"
             id="username"
-            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder="Enter your username"
             className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             required
           />
         </div>
 
-        {/* Name */}
+        {/* Full Name */}
         <div className="mb-4 text-left">
           <label htmlFor="name" className="block font-medium mb-1">
             Full Name
@@ -43,7 +85,8 @@ function SignUpCmp() {
           <input
             type="text"
             id="name"
-            name="name"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
             placeholder="Enter your full name"
             className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             required
@@ -58,7 +101,8 @@ function SignUpCmp() {
           <input
             type="password"
             id="password"
-            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Enter password"
             className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             required
@@ -73,7 +117,8 @@ function SignUpCmp() {
           <input
             type="password"
             id="confirmPassword"
-            name="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             placeholder="Re-enter password"
             className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-500"
             required
@@ -82,13 +127,14 @@ function SignUpCmp() {
 
         {/* Submit Button */}
         <button
-          type="submit" onClick={()=>verifyUser}
+          type="submit"
           className="w-full bg-green-700 text-white font-bold py-2 rounded hover:bg-green-800 transition"
         >
           Sign Up
         </button>
       </form>
-    );
+    </>
+  );
 }
 
 export default SignUpCmp;
