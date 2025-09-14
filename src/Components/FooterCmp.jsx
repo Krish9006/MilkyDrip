@@ -27,12 +27,12 @@ function FooterCmp() {
   return (
     <>
       {msg && <PopUpComponent msg={msg} />}
-      <footer className="bg-black text-white p-6 flex flex-row justify-between flex-wrap relative mt-3">
+      <footer className="bg-black text-white p-6 flex flex-row justify-between flex-wrap relative">
       {/* Col 1 */}
       <section>
-        <h3 className="font-bold text-2xl styledFont">SignUp For Latest Update</h3>
+        <h3 className="font-bold text-2xl">SignUp For Latest Update</h3>
         <div className="mt-3">
-          <input type="text" className="border p-2 rounded min-w-[250px] text-black bg-white" placeholder="Enter Your Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+          <input type="text" className="border p-2 rounded min-w-[250px] text-black bg-white" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
           <button
             className="bg-[#D71313] p-2 ml-2 rounded hover:cursor-pointer" onClick={handleSubmit}
@@ -40,7 +40,7 @@ function FooterCmp() {
             Submit
           </button>
         </div>
-        <h3 className="mt-3 font-bold" style={{textTransform:'uppercase'}}>Connect with us </h3>
+        <h3 className="mt-3 font-bold">Connect with us </h3>
         <div className="mt-2">
           <i
             className="min-w-[30px] text-center mr-2 border rounded-full p-2 fa-brands fa-facebook-f hover:text-blue-800 hover:bg-gray-200 hover:cursor-pointer"
@@ -62,8 +62,8 @@ function FooterCmp() {
       </section>
 
       {/* Col 2 */}
-      <section>
-        <h3 className="font-bold text-2xl styledFont">Customer Service</h3>
+      <section className="mt-4">
+        <h3 className="font-bold text-2xl">Customer Service</h3>
         <nav className="mt-1 flex flex-col">
           <Link to="/collections" className="hover:text-yellow-400">
             Collections
@@ -87,8 +87,8 @@ function FooterCmp() {
       </section>
 
       {/* Col 3 */}
-      <section>
-        <h3 className="font-bold text-2xl styledFont">Community</h3>
+      <section className="mt-4">
+        <h3 className="font-bold text-2xl">Community</h3>
         <nav className="mt-1 flex flex-col">
           <Link className="hover:text-yellow-400" to="/affliates">
             Affliates
