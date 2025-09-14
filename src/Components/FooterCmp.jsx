@@ -65,9 +65,6 @@ function FooterCmp() {
       <section>
         <h3 className="font-bold text-2xl styledFont">Customer Service</h3>
         <nav className="mt-1 flex flex-col">
-          <Link to="/collections" className="hover:text-yellow-400">
-            Collections
-          </Link>
           <Link to="/about" className="hover:text-yellow-400">
             About
           </Link>

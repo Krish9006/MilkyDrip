@@ -1,53 +1,69 @@
-import React, { useState, useRef } from 'react'; // 🔹 added useRef for timeout cleanup
+import React, { useState } from 'react'; 
 import "../Pages/Product.css"; 
+import PopUpComponent from './PopUpComponent';
 
-// Utility function to get a random artist name from a predefined list.
 const getRandomArtistName = () => {
     const artists = ['DrMonekers', 'AlemaArt', 'NemiMakeit', 'palmstreet', 'turborat14'];
     return artists[Math.floor(Math.random() * artists.length)];
 };
 
-const getRandomRating = () => {
-    return (Math.random() * 5).toFixed(1); 
-};
-
-const getRandomPersonCount = () => {
-    return Math.floor(Math.random() * 1000) + 100;
-};
+const getRandomRating = () => (Math.random() * 5).toFixed(1);
+const getRandomPersonCount = () => Math.floor(Math.random() * 1000) + 100;
 
 const ProductCard = ({ product }) => {
     const [isWishlisted, setIsWishlisted] = useState(false);
-    const [showCartMessage, setShowCartMessage] = useState(false);
-
-    // 🔹 store random values in state so they don’t change on every re-render
+    const [popupMsg, setPopupMsg] = useState(""); // msg for PopUpComponent
     const [artistName] = useState(getRandomArtistName);
     const [rating] = useState(getRandomRating);
     const [personCount] = useState(getRandomPersonCount);
 
-    // 🔹 ref to manage timeout cleanup for cart message
-    const timeoutRef = useRef(null);
-
     const handleWishlistClick = () => {
         setIsWishlisted(!isWishlisted);
+
+        // Set popup message
+        setPopupMsg(!isWishlisted ? "Added to wishlist" : "Removed from wishlist");
+
+        // Add to localStorage (wishlist array)
+        const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+        if (!isWishlisted) {
+            // Add new item
+            wishlist.push({ 
+                ...product, 
+                artistName, 
+                rating, 
+                personCount,
+                quantity: 1
+            });
+        } else {
+            // Remove item from wishlist if user unchecks heart
+            const index = wishlist.findIndex(item => item.id === product.id);
+            if (index !== -1) wishlist.splice(index, 1);
+        }
+
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
     };
 
     const handleAddToCart = () => {
-        setShowCartMessage(true);
+        // Set popup message
+        setPopupMsg("Item added to cart");
 
-        // 🔹 clear previous timeout if button clicked again
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-
-        timeoutRef.current = setTimeout(() => {
-            setShowCartMessage(false);
-        }, 2000);
+        // Add to cart in localStorage (allow duplicates)
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.push({ 
+            ...product, 
+            artistName, 
+            rating, 
+            personCount,
+            quantity: 1 
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
     };
-
 
     return (
         <div className="product-card1">
             <div className="image-container">
                 <img src={product.image} alt={product.title} className="product-image1" />
-                {/* 🔹 use stored artistName instead of generating again */}
                 <span className="random-artist-name">{artistName}</span>
             </div>
             
@@ -61,26 +77,21 @@ const ProductCard = ({ product }) => {
                     </button>
                 </div>
                 
-                {/* 🔹 use the same artistName for consistency */}
                 <h3 className="artist-name">{artistName}</h3>
-                
                 <h2 className="product-title">{product.title}</h2>
                 
                 <div className="product-info">
                     <div className="rating">
-                        <span>{product.rating}</span>
+                        <span>{rating}</span>
                         <span className="star-symbol">&#9733;</span>
                         <span>({personCount})</span>
                     </div>
                     <div className="price-in-dollar">${product.price}</div>
                 </div>
             </div>
-            
-            {showCartMessage && (
-                <div className="cart-message">
-                    Item added to cart
-                </div>
-            )}
+
+            {/* PopUpComponent with msg prop */}
+            <PopUpComponent msg={popupMsg} />
         </div>
     );
 };
