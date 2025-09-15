@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 function PopUpComponent({ msg }) {
   const [visible, setVisible] = useState(false);
-
+ 
   useEffect(() => {
     if (msg) {
       setVisible(true);

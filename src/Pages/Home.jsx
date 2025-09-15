@@ -17,7 +17,7 @@ function Home() {
 
                 <div className='border-t-gray-300 mt-15'> 
                     <div className=''>
-                        <ProductPage URL={Urls.horror} Heading={"Horror"}></ProductPage>
+                        <ProductPage URL={Urls.horror} Heading={"Our Products"}></ProductPage>
                     </div>
                 </div>
 
