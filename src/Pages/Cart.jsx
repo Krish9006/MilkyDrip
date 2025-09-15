@@ -54,7 +54,7 @@ function Cart() {
   }
 
   return (
-    <div className="cart-container mt-10 flex flex-col items-center gap-6">
+    <div className="cart-container mt-10 mb-10 flex flex-col items-center gap-6">
 
       {/* Cart Items Grid */}
       <div className="flex flex-wrap justify-center gap-6 w-full">
