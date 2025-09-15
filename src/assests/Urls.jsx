@@ -7,7 +7,9 @@ const Urls = {
     "nostalgia" : "https://raw.githubusercontent.com/endsem2025/milkydrip-assests/refs/heads/main/nostalgia/nostalgic_products.json",
     "top-picks" : "https://raw.githubusercontent.com/endsem2025/milkydrip-assests/refs/heads/main/top-picks/top-picks_products.json",
     "new-releases" : "https://raw.githubusercontent.com/endsem2025/milkydrip-assests/refs/heads/main/new-releases/weeklies_products.json",
-    "other" : "https://raw.githubusercontent.com/endsem2025/milkydrip-assests/refs/heads/main/other-collections/funny_products.json"
+    "other" : "https://raw.githubusercontent.com/endsem2025/milkydrip-assests/refs/heads/main/other-collections/funny_products.json",
+    "randomCollection":"https://raw.githubusercontent.com/endsem2025/milkydrip-assests/refs/heads/main/zodiac/virgo_products.json"
+
 };
 
 export default Urls;
