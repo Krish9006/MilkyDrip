@@ -26,7 +26,7 @@ export default function Carousel() {
 
   return (
     <>
-      <h1 className="mt-8 styledFont text-4xl text-center mb-6">Our Collections</h1>
+      <h1 className="mt-8 styledFont text-4xl text-center mb-6" style={{fontSize:"40px"}}>Our Collections</h1>
       <div className="carousel-wrapper">
         <button className="arrow left" onClick={() => scrollByCards(-1)} aria-label="Scroll left">
           ‹
